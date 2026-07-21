@@ -1,0 +1,48 @@
+[project]
+name = "llab"
+version = "0.0.1"
+description = "ai-lab shared Python harness: client, eval runner, probes, models."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "requests>=2.32",
+    "pydantic>=2.7",
+    "tiktoken>=0.7",
+    "python-dotenv>=1.0",
+]
+
+[project.optional-dependencies]
+ml = [
+    "transformers>=4.44",
+    "torch>=2.3",
+    "datasets>=2.20",
+    "accelerate>=0.33",
+]
+notebooks = [
+    "jupyter>=1.1",
+    "ipykernel>=6.29",
+]
+
+[project.scripts]
+llab = "llab.cli:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["tools/python/llab"]
+
+[tool.uv]
+package = true
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "N", "SIM"]
+ignore = ["E501"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

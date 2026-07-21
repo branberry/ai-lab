@@ -1,0 +1,20 @@
+---
+description: Conventions for working in the ai-lab repo. Follow AGENTS.md and the three-loop model (Learn → Probe → Ship) before writing code.
+globs:
+  - "**/*"
+alwaysApply: true
+---
+
+# ai-lab rules
+
+Read `AGENTS.md` at the repo root and follow it. The short version:
+
+- **Three loops**: Learn (concept/exercise), Probe (log `LL-NNNN` weakness), Ship (`TECH-NNNN` + eval).
+- **No `TECH-` without a linked `LL-`.** A technique must address a specific logged weakness.
+- **No `LL-` closed without a linked `TECH-`** or an explicit "won't address" reason.
+- **No claim a technique works without an eval.** Run `llab eval`, report baseline vs technique scores.
+- **Module isolation**: `lab/NN-*` may import from `tools/` but not from earlier module code.
+- **Templates**: use the templates in `docs/limitations/README.md`, `research/experiments/README.md`, `research/techniques/README.md`.
+- **Models**: `LAB_MODEL` (default Ollama) and `LAB_JUDGE_MODEL` (stronger local model for LLM-judge). Route via `llab.client.generate` with a model prefix.
+- **Don't commit**: `.env`, model blobs, venvs, eval result files.
+- **Tooling**: Python via `uv` (`uv sync`, `uv run ...`). TypeScript via `pnpm` (`pnpm install`, `pnpm build`).

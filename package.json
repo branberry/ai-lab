@@ -1,0 +1,30 @@
+{
+  "name": "@ai-lab/llab",
+  "version": "0.0.1",
+  "private": true,
+  "description": "ai-lab shared TypeScript harness: client, eval, agent (for Cursor SDK / provider SDK experiments).",
+  "type": "module",
+  "main": "tools/ts/dist/index.js",
+  "types": "tools/ts/dist/index.d.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "eval": "tsx tools/ts/llab/cli.ts eval"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.112.0",
+    "openai": "^6.0.0",
+    "@google/genai": "^2.0.0",
+    "ollama": "^0.6.0",
+    "zod": "^4.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^7.0.0",
+    "tsx": "^4.23.0",
+    "vitest": "^4.0.0",
+    "@types/node": "^26.0.0"
+  },
+  "packageManager": "pnpm@9.15.2"
+}

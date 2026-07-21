@@ -1,0 +1,49 @@
+# --- Python / uv ---
+.venv/
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+build/
+dist/
+.ruff_cache/
+.mypy_cache/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# --- Node / pnpm ---
+node_modules/
+*.tsbuildinfo
+dist/
+.turbo/
+.pnpm-store/
+
+# --- Env / secrets ---
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+
+# --- Models / large blobs ---
+*.gguf
+*.bin
+*.safetensors
+*.pt
+*.pth
+*.onnx
+models/
+ollama-models/
+
+# --- Lab outputs ---
+tools/python/llab/results/
+results/
+runs/
+wandb/
+mlruns/
+
+# --- Editor / OS ---
+.DS_Store
+.vscode/
+.idea/
+*.swp

@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "lib": ["ES2022"],
+    "types": ["node"],
+    "outDir": "tools/ts/dist",
+    "rootDir": "tools/ts/llab",
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitOverride": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "verbatimModuleSyntax": false,
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": ["tools/ts/llab/**/*.ts"],
+  "exclude": ["node_modules", "tools/ts/dist", "**/*.test.ts"]
+}
