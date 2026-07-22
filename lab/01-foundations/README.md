@@ -11,10 +11,10 @@ Tokenization, embeddings, the transformer block, attention by hand.
 
 ## Resources
 
-- "The Illustrated Transformer" — Jay Alammar
-- "Attention Is All You Need" — Vaswani et al. (read sections 3–4)
-- Karpathy's "Let's build GPT" video (nanoGPT)
-- `tiktoken` for BPE encoding inspection
+- [The Illustrated Transformer](https://jalammar.github.io/illustrated-transformer/) — Jay Alammar
+- [Attention Is All You Need](https://arxiv.org/abs/1706.03762) — Vaswani et al. (read sections 3–4)
+- [Let's build GPT](https://www.youtube.com/watch?v=kCc8FmEb1nY) — Karpathy (nanoGPT)
+- [tiktoken](https://github.com/openai/tiktoken) — BPE encoding inspection
 
 ## Exercises
 

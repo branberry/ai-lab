@@ -14,7 +14,22 @@ Read `AGENTS.md` at the repo root and follow it. The short version:
 - **No `LL-` closed without a linked `TECH-`** or an explicit "won't address" reason.
 - **No claim a technique works without an eval.** Run `llab eval`, report baseline vs technique scores.
 - **Module isolation**: `lab/NN-*` may import from `tools/` but not from earlier module code.
-- **Templates**: use the templates in `docs/limitations/README.md`, `research/experiments/README.md`, `research/techniques/README.md`.
+- **Templates**: use the templates in `docs/limitations/README.md`, `docs/concepts/README.md`, `research/experiments/README.md`, `research/techniques/README.md`.
 - **Models**: `LAB_MODEL` (default Ollama) and `LAB_JUDGE_MODEL` (stronger local model for LLM-judge). Route via `llab.client.generate` with a model prefix.
 - **Don't commit**: `.env`, model blobs, venvs, eval result files.
 - **Tooling**: Python via `uv` (`uv sync`, `uv run ...`). TypeScript via `pnpm` (`pnpm install`, `pnpm build`).
+
+## Learn vs Ship mode
+
+Two agent postures. Load the matching skill when in doubt.
+
+| Trigger | Mode | Skill |
+|---------|------|-------|
+| Files under `lab/`, exercise work, "help me understand", `/learn` | **Learn** | `.cursor/skills/learn/SKILL.md` |
+| Files under `research/`, TECH/LL/eval work, `/ship` | **Ship** | `.cursor/skills/ship/SKILL.md` |
+
+**Defaults by path**: `lab/` → Learn; `research/` → Ship. User intent overrides (e.g. `/ship` while in `lab/`).
+
+**Learn mode essentials**: derivation before code, predictions in `notes.md` before running, user writes core logic, comprehension gate before concept notes. Read `~/.pi/learn/tracks/ai-lab.json` when present (see `docs/learn-pi.md`).
+
+**Ship mode essentials**: LL → TECH → eval; no claims without scores.

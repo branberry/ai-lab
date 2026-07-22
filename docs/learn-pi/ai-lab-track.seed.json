@@ -1,0 +1,195 @@
+{
+  "id": "ai-lab",
+  "label": "AI Lab — LLM foundations to agents",
+  "status": "active",
+  "track_kind": "programming",
+  "outcome_compass": "PhD-level understanding of LLM internals — tokenization through agents — plus a techniques catalog with evals for observed weaknesses.",
+  "outcome_compass_revised_at": "2026-07-22T00:00:00.000Z",
+  "process_contract": {
+    "cue": null,
+    "session_min": 45,
+    "reward": "log + 5min decompression"
+  },
+  "work_dir": "/Users/brandonly/gitrepos/ai-lab",
+  "verify_command": "uv run pytest lab/ -q",
+  "edge": {
+    "statement": "Derive scaled dot-product attention by hand for a 4-token sequence (d=2) and compute one full attention row with causal masking.",
+    "set_at": "2026-07-22T00:00:00.000Z",
+    "sessions_at_edge": 0
+  },
+  "next_action": "Open lab/01-foundations/exercises/02-attention-by-hand.md. Write your mental model and 3 predictions in notes.md, then pick concrete Q/K/V numbers and compute row 3 of the attention matrix on paper.",
+  "next_action_set_at": "2026-07-22T00:00:00.000Z",
+  "deferred_yaks": [],
+  "depth": "advanced",
+  "recommended_stack": ["python"],
+  "edge_suggested": false,
+  "resources": [
+    {
+      "id": "res-learning-path",
+      "title": "docs/learning-path.md — full curriculum",
+      "url": "file:///Users/brandonly/gitrepos/ai-lab/docs/learning-path.md",
+      "kind": "doc",
+      "added_at": "2026-07-22T00:00:00.000Z"
+    },
+    {
+      "id": "res-agents",
+      "title": "AGENTS.md — Learn / Probe / Ship conventions",
+      "url": "file:///Users/brandonly/gitrepos/ai-lab/AGENTS.md",
+      "kind": "doc",
+      "added_at": "2026-07-22T00:00:00.000Z"
+    },
+    {
+      "id": "res-concept-tokenization",
+      "title": "CONCEPT-tokenization.md — mastered reference",
+      "url": "file:///Users/brandonly/gitrepos/ai-lab/docs/concepts/CONCEPT-tokenization.md",
+      "kind": "doc",
+      "added_at": "2026-07-22T00:00:00.000Z"
+    },
+    {
+      "id": "res-illustrated-transformer",
+      "title": "The Illustrated Transformer — Jay Alammar",
+      "url": "https://jalammar.github.io/illustrated-transformer/",
+      "kind": "article",
+      "added_at": "2026-07-22T00:00:00.000Z"
+    },
+    {
+      "id": "res-attention-paper",
+      "title": "Attention Is All You Need — Vaswani et al. (sections 3–4)",
+      "url": "https://arxiv.org/abs/1706.03762",
+      "kind": "paper",
+      "added_at": "2026-07-22T00:00:00.000Z"
+    }
+  ],
+  "glossary": [
+    {
+      "id": "gl-token",
+      "term": "token",
+      "definition": "An integer id from a fixed vocabulary; the model never sees raw text.",
+      "source": "file:///Users/brandonly/gitrepos/ai-lab/docs/concepts/CONCEPT-tokenization.md",
+      "unit_id": "m01-ex01-tokenization",
+      "added_at": "2026-07-22T00:00:00.000Z"
+    },
+    {
+      "id": "gl-bpe",
+      "term": "BPE",
+      "definition": "Byte-pair encoding — iteratively merges frequent byte pairs into vocabulary tokens.",
+      "source": "file:///Users/brandonly/gitrepos/ai-lab/docs/concepts/CONCEPT-tokenization.md",
+      "unit_id": "m01-ex01-tokenization",
+      "added_at": "2026-07-22T00:00:00.000Z"
+    },
+    {
+      "id": "gl-attention",
+      "term": "scaled dot-product attention",
+      "definition": "softmax(QK^T / sqrt(d)) V — each token attends to all (or prior) tokens via learned Q, K, V projections.",
+      "unit_id": "m01-ex02-attention-hand",
+      "added_at": "2026-07-22T00:00:00.000Z"
+    }
+  ],
+  "material_graph": {
+    "source": "file:///Users/brandonly/gitrepos/ai-lab/docs/learning-path.md",
+    "revised_at": "2026-07-22T00:00:00.000Z",
+    "units": [
+      {
+        "id": "m01-ex01-tokenization",
+        "title": "Module 01 — Exercise 01: Tokenization (BPE)",
+        "prerequisites": [],
+        "difficulty": "easy",
+        "status": "done",
+        "reference": {
+          "summary": "Inspect BPE tokenization with tiktoken: encode/decode, surprising splits, encoding comparison, tokens-per-word ratio. Leading-space convention and casing independence are the key mechanistic insights.",
+          "sources": [
+            {
+              "title": "01-tokenization.md",
+              "url": "file:///Users/brandonly/gitrepos/ai-lab/lab/01-foundations/exercises/01-tokenization.md"
+            },
+            {
+              "title": "CONCEPT-tokenization.md",
+              "url": "file:///Users/brandonly/gitrepos/ai-lab/docs/concepts/CONCEPT-tokenization.md"
+            }
+          ],
+          "glossary_terms": ["gl-token", "gl-bpe"]
+        },
+        "exercise": {
+          "spec": "Run 01_tokenization.py, capture surprising splits and tokens-per-word ratio in notes.md. Pass comprehension gate; concept note mastered.",
+          "starter_path": "lab/01-foundations/exercises/01_tokenization.py",
+          "test_command": "uv run python lab/01-foundations/exercises/01_tokenization.py",
+          "status": "passing"
+        }
+      },
+      {
+        "id": "m01-ex02-attention-hand",
+        "title": "Module 01 — Exercise 02: Attention by hand",
+        "prerequisites": ["m01-ex01-tokenization"],
+        "difficulty": "medium",
+        "status": "active",
+        "reference": {
+          "summary": "Paper-only derivation of scaled dot-product attention on a 4-token sequence (d=2). Compute one full attention row, then recompute with causal mask. Connect to Exercise 01 open questions: embeddings turn token ids into vectors; attention mixes them.",
+          "sources": [
+            {
+              "title": "02-attention-by-hand.md",
+              "url": "file:///Users/brandonly/gitrepos/ai-lab/lab/01-foundations/exercises/02-attention-by-hand.md"
+            },
+            {
+              "title": "notes.md (Exercise 01 open questions)",
+              "url": "file:///Users/brandonly/gitrepos/ai-lab/lab/01-foundations/notes.md"
+            }
+          ],
+          "glossary_terms": ["gl-attention"]
+        },
+        "exercise": {
+          "spec": "Derive attention formula, pick concrete Q/K/V (4×2), compute row 3 of weight matrix by hand with and without causal mask. Write mental model + predictions in notes.md before any code.",
+          "test_command": "test -f lab/01-foundations/notes.md",
+          "status": "in_progress"
+        }
+      },
+      {
+        "id": "m01-ex03-attention-code",
+        "title": "Module 01 — Exercise 03: Attention in code",
+        "prerequisites": ["m01-ex02-attention-hand"],
+        "difficulty": "medium",
+        "status": "pending",
+        "reference": {
+          "summary": "Implement scaled dot-product attention in numpy (no autograd). Verify output matches hand calculation from Exercise 02.",
+          "sources": [
+            {
+              "title": "03-attention-in-code.md",
+              "url": "file:///Users/brandonly/gitrepos/ai-lab/lab/01-foundations/exercises/03-attention-in-code.md"
+            }
+          ]
+        },
+        "exercise": {
+          "spec": "Implement attention in numpy; verify against Exercise 02 hand calculation.",
+          "starter_path": "lab/01-foundations/exercises/03_attention.py",
+          "test_command": "uv run pytest lab/01-foundations/exercises/ -k attention -q",
+          "status": "todo"
+        }
+      },
+      {
+        "id": "m01-ex04-mini-transformer",
+        "title": "Module 01 — Exercise 04: Mini transformer",
+        "prerequisites": ["m01-ex03-attention-code"],
+        "difficulty": "hard",
+        "status": "pending",
+        "reference": {
+          "summary": "2-layer transformer forward pass on a tiny vocab. Trace information flow end-to-end.",
+          "sources": [
+            {
+              "title": "04-mini-transformer.md",
+              "url": "file:///Users/brandonly/gitrepos/ai-lab/lab/01-foundations/exercises/04-mini-transformer.md"
+            }
+          ]
+        },
+        "exercise": {
+          "spec": "Implement a 2-layer transformer forward pass and run it on a tiny vocab.",
+          "starter_path": "lab/01-foundations/exercises/04_mini_transformer.py",
+          "test_command": "uv run pytest lab/01-foundations/exercises/ -k transformer -q",
+          "status": "todo"
+        }
+      }
+    ]
+  },
+  "log": [],
+  "stall_counter": 0,
+  "last_session_at": null,
+  "created_at": "2026-07-22T00:00:00.000Z"
+}
