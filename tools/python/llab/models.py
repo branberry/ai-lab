@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-import os
 from typing import Any
 
 import requests
@@ -30,7 +29,9 @@ def show_model(name: str) -> dict[str, Any]:
 
 def pull_model(name: str, stream: bool = False) -> None:
     """Pull a model from the Ollama registry. Streams progress to stdout if stream=True."""
-    with requests.post(f"{_base_url()}/api/pull", json={"name": name, "stream": stream}, stream=True, timeout=None) as r:
+    with requests.post(
+        f"{_base_url()}/api/pull", json={"name": name, "stream": stream}, stream=True, timeout=None
+    ) as r:
         r.raise_for_status()
         for line in r.iter_lines():
             if line:
@@ -56,7 +57,9 @@ def main() -> int:
         return 0
     for m in models:
         size_mb = m.get("size", 0) / (1024 * 1024)
-        print(f"{m['name']:40s} {size_mb:8.1f} MB  {m.get('details', {}).get('quantization_level', '')}")
+        print(
+            f"{m['name']:40s} {size_mb:8.1f} MB  {m.get('details', {}).get('quantization_level', '')}"
+        )
     return 0
 
 

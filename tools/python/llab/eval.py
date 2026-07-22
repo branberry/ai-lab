@@ -120,7 +120,9 @@ def run_eval(
         s = score_one(ex, res.text, judge_model)
         scored.append(s)
         flag = "OK " if s.score >= 0.999 else "XX "
-        print(f"{flag}[{i:2d}/{len(examples)}] score={s.score:.2f} ({s.scorer}) :: {res.text[:60]!r}")
+        print(
+            f"{flag}[{i:2d}/{len(examples)}] score={s.score:.2f} ({s.scorer}) :: {res.text[:60]!r}"
+        )
 
     print("-" * 60)
     mean = sum(s.score for s in scored) / max(1, len(scored))
