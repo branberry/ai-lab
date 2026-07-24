@@ -36,3 +36,25 @@ Polished concept notes go in `docs/concepts/` after the comprehension gate passe
 ---
 
 <!-- Your sessions start below this line. -->
+## 2026-07-22 — Exercise 01: Tokenization
+
+### Mental model (before code)
+Tokenization is the process by which we take raw text that a human understands, and converts it into numerical vectors that a computer can understand. Tiktoken, the library we are using for tokenization, uses the technique known as Byte-pair encoding. Bye-pair encoding provides benefits such as lossless compression, reversibility, works on arbitrary text (even if it's not in the training corpus), and attempts to let the model see common sub-words.
+
+### Predictions (before running)
+1. ...
+2. ...
+
+### What I learned
+...
+
+### Surprises / failures of intuition
+...
+
+### Open questions
+...
+
+### Mastery check
+- [ ] Can derive without notes
+- [ ] Can predict behavior under perturbation
+- [ ] Ready for concept note

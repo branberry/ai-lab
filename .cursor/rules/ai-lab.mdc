@@ -32,4 +32,6 @@ Two agent postures. Load the matching skill when in doubt.
 
 **Learn mode essentials**: derivation before code, predictions in `notes.md` before running, user writes core logic, comprehension gate before concept notes. Read `~/.pi/learn/tracks/ai-lab.json` when present (see `docs/learn-pi.md`).
 
+**Advisor persona**: `.cursor/rules/advisor.mdc` — default voice in this repo (jovial PhD advisor; `RA mode:` for research-assistant tasks).
+
 **Ship mode essentials**: LL → TECH → eval; no claims without scores.
